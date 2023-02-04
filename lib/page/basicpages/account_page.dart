@@ -27,34 +27,6 @@ class Account extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: CircleImageProfile(),
             )
-            // Card(
-            //   shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(8)),
-            //   shadowColor: Colors.pinkAccent,
-            //   color: Colors.amber,
-            //   child: Column(
-            //     mainAxisSize: MainAxisSize.min,
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: const [
-            //       Padding(
-            //         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            //         child: Text(
-            //           'far far away',
-            //           style: TextStyle(
-            //             color: Colors.white,
-            //           ),
-            //         ),
-            //       ),
-            //       SizedBox(
-            //         height: 5,
-            //       ),
-            //       Padding(
-            //         padding: EdgeInsets.symmetric(horizontal: 30),
-            //         child: Text('jqqwiouoqweoqweuoqyeqiweyiqewybqiweybqwieyqiweyqe'),
-            //       )
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),
