@@ -1,14 +1,14 @@
 
 import 'package:flutter/material.dart';
 
-class SingIn extends StatefulWidget {
-  const SingIn({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<SingIn> createState() => _SingInState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _SingInState extends State<SingIn> {
+class _SignUpState extends State<SignUp> {
   final name = TextEditingController();
   final eMailUser = TextEditingController();
   final passWordUser = TextEditingController();
@@ -19,11 +19,10 @@ class _SingInState extends State<SingIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sing In'),
+        title: const Text('Sign Up'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      body: SafeArea(
+        child: ListView(
           children:  <Widget> [
             Image.asset(
                   'image/beehaak.png',

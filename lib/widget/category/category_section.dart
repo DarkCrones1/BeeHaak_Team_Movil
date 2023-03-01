@@ -1,37 +1,42 @@
-import 'package:bee_haak_app/core/entities/category.dart';
-import 'package:bee_haak_app/data/category_repository.dart';
+
+import 'package:bee_haak_app/Providers/category_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CategorySection extends StatelessWidget {
-  final int cantidad;
+import '../../dtos/responses/category_responses_dto.dart';
 
-  const CategorySection
-  ({
-    super.key,
-    required this.cantidad,
-  });
+class CategoryListView extends StatelessWidget {
+  const CategoryListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var category = CategoryRepository.getCategory(cantidad);
-
+    
     return Scaffold(
-      body: ListView.builder(
-        itemCount: category.length,
-        itemBuilder: ((context, index) => createItemList(context, category[index])),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Consumer<CategoryProvider>(builder: (context, categoryProvider, child) => categoryProvider.isloading ? const Center(child: CircularProgressIndicator())
+          :Expanded(
+            child: ListView.builder(
+              itemCount: categoryProvider.category?.length,
+              itemBuilder: ((context, index) => createItemList(context, categoryProvider.category![index])),
+            ),
+          ))
+        ],
       ),
     );
   }
-  
-  createItemList(BuildContext context,Category category) => ListTile(
-    title: Text(category.nameCategory),
+
+  createItemList(BuildContext context,CategoryResponseDto category) => ListTile(
+    title: Text(category.name),
     subtitle: Text(category.description),
     trailing: displayImage(context, category.imageURL),
-    onTap: () => Navigator.pushNamed(context, '/store_page_${category.id}'),
+    // trailing: displayImage(context,),
+    onTap: () => Navigator.pushNamed(context, '/store_page_${category.name}'),
+    // onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PageNature(nameCategory: category[]),
   );
   
+  // displayImage(BuildContext context, )=> FadeInImage.assetNetwork(placeholder: 'image/loading.gif', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoXsJHSvQyODNWGPlVd6TstIV3Bkuo-m3-Ww&usqp=CAU');
   displayImage(BuildContext context, String imageURL) => FadeInImage.assetNetwork(placeholder: 'image/loading.gif', image: imageURL);
-
-
 }
 

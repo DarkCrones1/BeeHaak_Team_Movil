@@ -25,14 +25,16 @@ class _HomeState extends State<Home> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          const SizedBox(height: 10,),
           const Text('Bee Haak', style: 
           TextStyle(
             fontSize: 50,
             fontFamily: 'ROBOTO',
           ),),
+          const SizedBox(height: 10,),
           SizedBox(
             width: 350,
-            height: 30,
+            height: 40,
             child: TextField(
               controller: search,
               decoration: const InputDecoration(
@@ -59,9 +61,9 @@ class _HomeState extends State<Home> {
                 )
             ],
           ),
-          const SizedBox(height: 30,),
+          const SizedBox(height: 10,),
           const Expanded(
-            child: ListViewProduct(cantidad: 4),
+            child: ProductListView(items: 5,),
           ),
         ],
       )

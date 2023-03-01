@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 FilledButton(
-                  child: const Text('Log In'),
+                  child: const Text('Sign In'),
                   onPressed: () {
                     Navigator.pushNamed(context, '/account_page');
                   },
@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             ButtonBar(
               children: <Widget>[
-                TextButton.icon(onPressed: () => Navigator.pushNamed(context, '/sing_in'), icon: const Icon(Icons.arrow_circle_right_outlined), label: const Text('Sing In')),
+                TextButton.icon(onPressed: () => Navigator.pushNamed(context, '/sign_up'), icon: const Icon(Icons.arrow_circle_right_outlined), label: const Text('Sign Up')),
               ],
             ),
             const SizedBox(

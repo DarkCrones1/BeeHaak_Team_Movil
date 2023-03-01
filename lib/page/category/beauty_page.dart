@@ -1,8 +1,8 @@
 import 'package:bee_haak_app/widget/listview/product_listview.dart';
 import 'package:flutter/material.dart';
 
-class BeautyPage extends StatelessWidget {
-  const BeautyPage({super.key});
+class PageBeauty extends StatelessWidget {
+  const PageBeauty({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class BeautyPage extends StatelessWidget {
         title: const Text('Beauty'),
       ),
       body: const Center(
-        child: ListViewProduct(cantidad: 10),
+        child: Expanded(child: ProductListView()),
       ),
     );
   }

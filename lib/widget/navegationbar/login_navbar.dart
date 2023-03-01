@@ -1,6 +1,6 @@
 
 import 'package:bee_haak_app/page/login/login_page.dart';
-import 'package:bee_haak_app/page/login/sing_in.dart';
+import 'package:bee_haak_app/page/login/sign_up.dart';
 import 'package:flutter/material.dart';
 
 class LoginNavBar extends StatefulWidget {
@@ -38,7 +38,7 @@ class _LoginNavBarState extends State<LoginNavBar> {
           // color: Colors.amber,
           alignment: Alignment.center,
           // ignore: prefer_const_constructors
-          child: SingIn(),
+          child: SignUp(),
         ),
       ][currentPageIndex],
     );

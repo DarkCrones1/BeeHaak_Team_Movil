@@ -1,3 +1,4 @@
+
 import 'package:bee_haak_app/statemanager/theme/theme_mode.dart';
 import 'package:bee_haak_app/widget/buttons/button_navegation.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class OptionPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Options'),
         actions: const [
+          LWMOde(),
           ButtonPage(icon: Icons.account_circle_outlined, ruta: '/login_page', ),
         ],
       ),
