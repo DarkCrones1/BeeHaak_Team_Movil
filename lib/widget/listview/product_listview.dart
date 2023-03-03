@@ -1,5 +1,7 @@
 import 'package:bee_haak_app/Providers/product_providers.dart';
+import 'package:bee_haak_app/dtos/responses/category_responses_dto.dart';
 import 'package:bee_haak_app/dtos/responses/product_responses_dto.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,4 +1,5 @@
-import 'package:bee_haak_app/widget/listview/product_listview.dart';
+
+import 'package:bee_haak_app/widget/listview/product_lisview_candy.dart';
 import 'package:flutter/material.dart';
 
 class PageCandy extends StatelessWidget {
@@ -10,9 +11,7 @@ class PageCandy extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Candy'),
       ),
-      body: const Center(
-        child: Expanded(child: ProductListView()),
-      ),
+      body:  const ProductListViewCandy(),
     );
   }
 }

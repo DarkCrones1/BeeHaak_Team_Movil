@@ -1,12 +1,12 @@
-import 'package:bee_haak_app/Providers/product_category_provider.dart';
+import 'package:bee_haak_app/Providers/product_beauty_provider.dart';
 import 'package:bee_haak_app/dtos/responses/product_responses_dto.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ProductListViewCategory extends StatelessWidget {
+class ProductListViewBeauty extends StatelessWidget {
   final int? items;
   final String? category;
-  const ProductListViewCategory
+  const ProductListViewBeauty
   ({
     super.key,
     this.items,
@@ -15,12 +15,10 @@ class ProductListViewCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     
     return Column(
         children: [
-          Consumer<ProductCategoryProvider>(builder: (context, productCategoryProvider, child) => productCategoryProvider.isloading ? const Center(child: CircularProgressIndicator())
+          Consumer<ProductBeautyProvider>(builder: (context, productCategoryProvider, child) => productCategoryProvider.isloading ? const Center(child: CircularProgressIndicator())
           :Expanded(
             child: ListView.builder(
               // itemCount: ,

@@ -1,39 +1,33 @@
+import 'package:bee_haak_app/Providers/change_theme_provider.dart';
+import 'package:bee_haak_app/color_schemes.g.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class LWMOde extends StatefulWidget {
-  const LWMOde({super.key});
-  @override
-  State<LWMOde> createState() => _LWMOdeState();
 
-}
-
-class _LWMOdeState extends State<LWMOde> {
-
-  bool mode = false;
+class SelectTheme extends StatelessWidget {
+  const SelectTheme
+  ({
+    super.key,
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context ){
 
-    return IconButton(
-      padding: const EdgeInsets.all(0),
-      alignment: Alignment.centerRight,
-      icon: (mode
-            ? const Icon(Icons.sunny)
-            : const Icon(Icons.mode_night_rounded)),
-          onPressed: lwMode,
+    final theme = Provider.of<ChangeTheme>(context);
+
+
+    return Row(
+      children: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.sunny),
+          onPressed: () => theme.setTheme(ThemeData(colorScheme: lightColorScheme)),
+        ),
+        IconButton(
+          icon: const Icon(Icons.mode_night),
+          onPressed: () => theme.setTheme(ThemeData(colorScheme: darkColorScheme)),
+        )
+      ],
     );
   }
-
-    lwMode() => {
-    setState(
-      (){
-        if (mode){
-          mode = false;
-        } else{
-          mode = true;
-        }
-      }
-    )
-  };
 }
 

@@ -37,6 +37,6 @@ class CategoryListView extends StatelessWidget {
   );
   
   // displayImage(BuildContext context, )=> FadeInImage.assetNetwork(placeholder: 'image/loading.gif', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoXsJHSvQyODNWGPlVd6TstIV3Bkuo-m3-Ww&usqp=CAU');
-  displayImage(BuildContext context, String imageURL) => FadeInImage.assetNetwork(placeholder: 'image/loading.gif', image: imageURL);
+  displayImage(BuildContext context, String imageURL) => FadeInImage.assetNetwork(placeholder: 'image/loading.gif', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoXsJHSvQyODNWGPlVd6TstIV3Bkuo-m3-Ww&usqp=CAU');
 }
 

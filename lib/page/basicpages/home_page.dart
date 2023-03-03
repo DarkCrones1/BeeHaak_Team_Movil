@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
           ),
           const SizedBox(height: 10,),
           const Expanded(
-            child: ProductListView(items: 5,),
+            child: ProductListView(),
           ),
         ],
       )
