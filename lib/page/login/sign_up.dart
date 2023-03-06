@@ -37,26 +37,26 @@ class _SignUpState extends State<SignUp> {
                     height: 200,
                     width: 200,
                   ),
-              const SizedBox(height: 20,),
-              Padding(
-                padding:  const EdgeInsets.only(left: 20.0, right: 20.0),
-                child: TextFormField(
-                  controller: nameController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'please enter a name';
-                    }
-                    return null;
-                  },
-                  keyboardType: TextInputType.name,
-                  decoration: const InputDecoration(
-                    filled: true,
-                    labelText: 'User name',
-                    suffixIcon: Icon(Icons.account_circle),
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ),
+              // const SizedBox(height: 20,),
+              // Padding(
+              //   padding:  const EdgeInsets.only(left: 20.0, right: 20.0),
+              //   child: TextFormField(
+              //     controller: nameController,
+              //     validator: (value) {
+              //       if (value == null || value.isEmpty) {
+              //         return 'please enter a name';
+              //       }
+              //       return null;
+              //     },
+              //     keyboardType: TextInputType.name,
+              //     decoration: const InputDecoration(
+              //       filled: true,
+              //       labelText: 'User name',
+              //       suffixIcon: Icon(Icons.account_circle),
+              //       border: OutlineInputBorder(),
+              //     ),
+              //   ),
+              // ),
               const SizedBox(height: 20,),
               Padding(
                 padding:  const EdgeInsets.only(left: 20.0, right: 20.0),
@@ -118,8 +118,7 @@ class _SignUpState extends State<SignUp> {
                   TextButton.icon(onPressed: (){
                     if (formKey.currentState!.validate()) {
                       logger.d(nameController.text);
-                      context.read<UserProvider>().createUser(
-                          nameController.text, eMailUser.text, passWordUser.text, context);
+                      context.read<UserProvider>().createUser(eMailUser.text, passWordUser.text, context);
                     }
                   },
                   icon: const Icon(Icons.create), label: const Text('Create Account')),

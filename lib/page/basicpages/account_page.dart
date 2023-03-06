@@ -8,6 +8,9 @@ class Account extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          ElevatedButton(onPressed: () => Navigator.restorablePushNamedAndRemoveUntil(context, '/home_navbar', (route) => false), child: const Text('Logout'))
+        ],
         title: const Text('Profile'),
       ),
       // backgroundColor: Colors.yellow[800],

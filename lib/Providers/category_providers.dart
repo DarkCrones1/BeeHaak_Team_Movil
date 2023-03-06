@@ -1,6 +1,7 @@
 
 import 'dart:convert';
 
+import 'package:bee_haak_app/dtos/requests/category_create_request_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -34,5 +35,34 @@ class CategoryProvider extends ChangeNotifier {
       throw Exception('Failer to load');
     }
   } 
+
+
+  Future createCategory(String name, String description, String imageURL, BuildContext context) async {
+    final category = CategoryRequestDto(name: name, description: description, imageURL: imageURL);
+
+    final response = await http.post(
+      Uri.parse('http://localhost:5042/API_Bee_Haak/Category'),
+      headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',},
+      body: jsonEncode(category),
+      );
+
+      if (response.statusCode == 200){
+        logger.d('Category Created: ${response.body}');
+        if (context.mounted){
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Category Created'))
+          );
+          Navigator.pop(context);
+        }
+      } else {
+        logger.e('Error: ${response.statusCode}');
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text ('Error: ${response.statusCode}')),
+          );
+        }
+      }
+  }
 
 }

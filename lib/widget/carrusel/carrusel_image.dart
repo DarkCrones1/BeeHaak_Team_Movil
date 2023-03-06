@@ -40,11 +40,9 @@ class _CarruselImageState extends State<CarruselImage> {
       autoPlayInterval: const Duration(seconds: 2)
         ),
         itemBuilder: (context, index, realIdx) {
-      return Container(
-        child: Center(
-            child: Image.network(images[index],
-                fit: BoxFit.cover, width: 1000)),
-      );
+      return Center(
+          child: Image.network(images[index],
+              fit: BoxFit.cover, width: 1000));
         },
       ),
     );

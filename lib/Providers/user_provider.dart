@@ -31,8 +31,8 @@ class UserProvider extends ChangeNotifier{
     }
   }
 
-  Future createUser(String name, String email, String password, BuildContext context) async{
-    final user = UserCreateRequestDto(email: email, password: password, name: name);
+  Future createUser(String email, String password, BuildContext context) async{
+    final user = UserResponseDto(email: email, password: password);
 
     final response = await http.post(
       Uri.parse('http://localhost:5042/API_Bee_Haak/Account/Register'),

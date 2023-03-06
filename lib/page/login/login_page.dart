@@ -1,7 +1,6 @@
 
 import 'package:bee_haak_app/Providers/user_login_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_login/flutter_login.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 

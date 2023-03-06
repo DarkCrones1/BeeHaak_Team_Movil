@@ -1,7 +1,10 @@
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginInicio extends StatefulWidget {
   @override
@@ -40,41 +43,40 @@ class _LoginInicioState extends State<LoginInicio> {
         final rol = responseData['rol'];
 
         // Guarda el token utilizando SharedPreferences
-        // SharedPreferences prefs = await SharedPreferences.getInstance();
-        // await prefs.setString('token', token);
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('token', token);
 
         // Autenticación exitosa, redirige al usuario a la página de inicio
 
-    //      if (rol == 'Chofer') {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => const ()),
-    //   );
-    // } else if (rol == 'Almacen') {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => const ()),
-    //   );
-    // } else {
-    //   // Si el rol no es "Chofer" ni "Almacen", muestra un mensaje de error
-    //   showDialog(
-    //     context: context,
-    //     builder: (context) => AlertDialog(
-    //       title: Text('Error'),
-    //       content: Text('Esta aplicación es solo para empleados de Chofer o Almacen.'),
-    //       actions: [
-    //         TextButton(
-    //           child: Text('OK'),
-    //           onPressed: () => Navigator.pop(context),
-    //         ),
-    //       ],
-    //     ),
-    //   );
-    // }
+        if (rol == 'Chofer') {
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => const ()),
+      // );
+    } else if (rol == 'Almacen') {
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => const ()),
+      // );
+    } else {
+      // Si el rol no es "Chofer" ni "Almacen", muestra un mensaje de error
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Error'),
+          content: const Text('Esta aplicación es solo para empleados de Chofer o Almacen.'),
+          actions: [
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
+      );
+    }
 
       } else {
-        // La autenticación falló, muestra un mensaje de error
-        // ignore: use_build_context_synchronously
+        // La autenticación falló, muestra un mensaje de err
         showDialog(
           context: context,
           builder: (context) => AlertDialog(

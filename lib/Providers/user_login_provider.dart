@@ -1,4 +1,6 @@
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'package:bee_haak_app/dtos/responses/user_response_dto.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,6 @@ class UserLoginProvider extends ChangeNotifier{
   }
 
   Future loginUser(String email, String password, BuildContext context) async{
-    final SharedPreferences shared = await SharedPreferences.getInstance();
     final user = UserResponseDto(email: email, password: password);
 
     final response = await http.post(
@@ -45,12 +46,25 @@ class UserLoginProvider extends ChangeNotifier{
       if (response.statusCode == 200){
         if (context.mounted){
           final json = jsonDecode(response.body);
-          shared.setString('token', json['token']);
+          final token = json['token'];
+          // final claim = token['Rol'];
+          // Guarda el token usando sharedpreferences
+          final SharedPreferences shared = await SharedPreferences.getInstance();
+          shared.setString('token', token);
 
+          if (email == 'Ivan@gmail.com' || email == 'Lalo@gmail.com' || email == 'Pedro@gmail.com'){
           ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Welcome Admin")));
+          Navigator.restorablePushNamedAndRemoveUntil(context, '/home_admin_navbar', (route) => false);
+          }else{
+            ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Welcome  ${user.email}")));
-          Navigator.restorablePushNamedAndRemoveUntil(context, '/home_navbar', (route) => false);
+          Navigator.restorablePushNamedAndRemoveUntil(context, '/home_user_navbar', (route) => false);
+          }
         }
+      }else{
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Email or password incorrect")));
       }
   }
 
